@@ -1,4 +1,4 @@
-import { UserDTO } from './useDTO';
+import { UserDTO } from './userDTO';
 import { userSchema } from './utils/config';
 import { IUser } from './utils/interfaces';
 

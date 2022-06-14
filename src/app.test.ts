@@ -21,7 +21,7 @@ describe('Test crud methods', () => {
         expect(response.body).toEqual([]);
     });
     test('should respond with a 404 status code', async () => {
-        const response = await request(serverTest).get(`/api/users/\${${id}}`);
+        const response = await request(serverTest).get(`/api/users/${id}`);
 
         expect(response.status).toBe(404);
     });
@@ -42,7 +42,7 @@ describe('Test crud methods', () => {
         expect(response.body).toEqual(createdUser);
     });
     test('should respond with a 200 status code and one record', async () => {
-        const response = await request(serverTest).get(`/api/users/\${${id}}`);
+        const response = await request(serverTest).get(`/api/users/${id}`);
 
         expect(response.status).toBe(200);
         expect(response.body).toEqual(createdUser);
@@ -53,7 +53,7 @@ describe('Test crud methods', () => {
             age: 27,
         };
 
-        const response = await request(serverTest).put(`/api/users/{${id}}`).send(updateUser);
+        const response = await request(serverTest).put(`/api/users/${id}`).send(updateUser);
 
         const updatedUser = { ...createdUser, ...updateUser };
 
@@ -61,7 +61,7 @@ describe('Test crud methods', () => {
         expect(response.body).toEqual(updatedUser);
     });
     test('should respond with a 204 status code', async () => {
-        const response = await request(serverTest).delete(`/api/users/\${${id}}`);
+        const response = await request(serverTest).delete(`/api/users/${id}`);
 
         expect(response.status).toBe(204);
     });
@@ -72,7 +72,7 @@ describe('Test crud methods', () => {
         expect(response.body).toEqual([]);
     });
     test('should respond with a 404 status code', async () => {
-        const response = await request(serverTest).get(`/api/users/\${${id}}`);
+        const response = await request(serverTest).get(`/api/users/${id}`);
 
         expect(response.status).toBe(404);
     });
