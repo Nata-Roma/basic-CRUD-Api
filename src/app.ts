@@ -130,21 +130,15 @@ export class AppServer {
             const user = await this.db.getUser(id);
 
             if (!user) {
-                console.log('404');
-
                 response.statusCode = 404;
                 response.write(JSON.stringify({ error: 'Record does not exist' }));
                 response.end();
             } else {
-                console.log('200');
-
                 response.statusCode = 200;
                 response.write(JSON.stringify(user));
                 response.end();
             }
         } catch (error) {
-            console.log('500');
-
             response.statusCode = 500;
             response.write(JSON.stringify({ error: 'Server error' }));
             response.end();

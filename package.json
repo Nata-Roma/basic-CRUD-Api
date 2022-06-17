@@ -9,8 +9,8 @@
     "build:dev": "webpack --mode=development",
     "build:prod": "webpack --mode=production --node-env=production",
     "watch": "webpack --watch",
-    "start:prod": "tsc && node dist/server.js",
-    "start:dev": "ts-node-dev --respawn --transpile-only ./src/server.ts",
+    "start:prod": "tsc && node dist/index.js",
+    "start:dev": "ts-node-dev --respawn --transpile-only ./src/index.ts",
     "start:multi": "tsc && node dist/multi.js"
   },
   "author": "",

@@ -1,8 +1,11 @@
 import cluster from 'cluster';
 import { cpus } from 'os';
 import process from 'process';
+import { DB, db } from './db';
+import { SingleServer } from './server';
 
-const startMulti = async () => {
+
+const startMulti = async (db: DB) => {
     const numCPUs = cpus().length;
 
     if (cluster.isPrimary) {
@@ -17,10 +20,10 @@ const startMulti = async () => {
             console.log(`worker ${worker.process.pid} died`);
         });
     } else {
-        await import('./server');
+        const server = new SingleServer(db);
         //require('./server');
         console.log(`Worker ${process.pid} started`);
     }
 };
 
-startMulti();
+startMulti(db);
